@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 
+extern void asm_DAXPY(long long int n, int a, double* x, double* y, double* z);
+
 void DAXPY(long long int n, int a, double* x, double* y, double* z) {
     int i;
     for (i = 0; i < n; i++) {
@@ -45,7 +47,6 @@ int main() {
     init_x(x);
     init_y(y);
 
-
     // DAXPY in C
     printf("--- DAXPY in C ---\n");
 
@@ -57,12 +58,11 @@ int main() {
 
     print_first_ten(z);
 
-
     // DAXPY in x86_64
     printf("\n--- DAXPY in x86_64 ---\n");
 
     start = clock();
-    DAXPY(n, a, x, y, z);
+    asm_DAXPY(n, a, x, y, z);
     end = clock();
     executionTime = (double)(end - start) / CLOCKS_PER_SEC;
     printf("Execution Time: %lf s\n", executionTime);
