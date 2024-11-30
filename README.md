@@ -1,6 +1,11 @@
 ## x86-64 C interface
 This project is created to compare the performance of C and x86-64 assembly language.
 
+Members: 
+Cerezo, Aero John Mendoza
+Chua, Micole Keesha Ang 
+
+
 ### Comparative Results
 The following table shows the execution time of each vector size: $n = 2^{28}$, $n = 2^{24}$, $n = 2^{20}$ respectively.
 | Trial No. | Execution Time in C | Execution Time in x86-64 | Trial No. | Execution Time in C | Execution Time in x86-64 | Trial No. | Execution Time in C | Execution Time in x86-64 |
