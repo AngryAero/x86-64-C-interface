@@ -33,6 +33,19 @@ void print_first_ten(double* arr) {
     printf("\n");
 }
 
+void correctness_check(double* arr) {
+    double expected[] = { 13.0, 16.0, 19.0, 0, 0, 0, 0, 0, 0, 0 };
+    int i;
+    for (i = 0; i < 10; i++) {
+        if (arr[i] != expected[i]) {
+            printf("\nThe output is incorrect.\n");
+            return;
+        }
+    }
+
+    printf("\nThe output is correct.\n");
+}
+
 int main() {
     clock_t start, end;
     double executionTime;
@@ -57,6 +70,7 @@ int main() {
     printf("Execution Time: %lf s\n", executionTime);
 
     print_first_ten(z);
+    correctness_check(z);
 
     // DAXPY in x86_64
     printf("\n--- DAXPY in x86_64 ---\n");
@@ -68,6 +82,7 @@ int main() {
     printf("Execution Time: %lf s\n", executionTime);
 
     print_first_ten(z);
+    correctness_check(z);
 
     free(x);
     free(y);
